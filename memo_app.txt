@@ -1,0 +1,28 @@
+@@2019/12/17 9:53
+
+Laravel 5.8 + mysql CRUD
+
+@@2019/12/17 9:53
+・todos機能の実装、VUE無し。
+　MDは、 markedで対応する。
+
+@@2019/12/10 18:54
+session add.
+auth認証の追加
+ページネーション
+etc の、機能を追加する。
+
+@@
+・ win10
+・DB mysql setting
+・Laravel 5.8, composer install
+・helper= ,laravelcollective/html
+
+@@2019/12/04 9:21
+・softDelete が、追加される。
+
+@@ 
+@@ 参考
+https://qiita.com/moyashimanjyu/items/17ffe537fd37cccf00c0
+
+@@
