@@ -12,6 +12,7 @@
     <div class="panel-body">
         <table class="table table-striped task-table">
             <thead>
+                <th>ID</th>
                 <th>title</th>
                 <!--
                 <th>完了</th>
@@ -21,23 +22,25 @@
             </thead>
             <?php //debug_dump($tasks); ?>
             <tbody>
-                @foreach ($books as $book)
-                    <tr>
-                        <td class="table-text">
-                            {{ link_to_route('tasks.show', $book->title, $book->id) }}
-                        </td>
-                        <td class="table-text">
-                            {{ link_to_route('tasks.edit', '編集'
-                            , $book->id, ['class' => 'btn btn-sm btn-default']) }}
-                        </td>
-                        <td class="table-text">
-                            {{ Form::open(['route' => ['tasks.destroy', $book->id], 'method' => 'delete']) }}
-                                {{ Form::hidden('id', $book->id) }}
-                                {{ Form::submit('削除', ['class' => 'btn btn-sm btn-default']) }}
-                            {{ Form::close() }}
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach ($books as $book)
+            <tr>
+                <td class="table-text">{{ $book->id }}
+                </td>
+                <td class="table-text">
+                    {{ link_to_route('books.show', $book->title, $book->id) }}
+                </td>
+                <td class="table-text">
+                    {{ link_to_route('books.edit', '編集'
+                    , $book->id, ['class' => 'btn btn-sm btn-default']) }}
+                </td>
+                <td class="table-text">
+                    {{ Form::open(['route' => ['tasks.destroy', $book->id], 'method' => 'delete']) }}
+                        {{ Form::hidden('id', $book->id) }}
+                        {{ Form::submit('削除', ['class' => 'btn btn-sm btn-default']) }}
+                    {{ Form::close() }}
+                </td>
+            </tr>
+            @endforeach
             </tbody>
         </table>
         <br />

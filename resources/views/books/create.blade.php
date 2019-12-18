@@ -47,8 +47,37 @@
                     ['class' => 'form-control', 'id' => 'type', 'required'=>'required']
                 ) }}
             </div>
-        </div>                
+        </div>   
+        <!--date -->
+        <div class="form-group">
+            {!! Form::label('date_1', '日付_1', ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-4">
+                <!--
+                {{Form::selectYear('date_1[year]', 2013, 2015, 2014, ['class' => 'form-control'])}}
+                {{Form::selectMonth('date_1[month]', 0, ['class' => 'form-control'])}}
+                {{Form::selectRange('date_1[day]', 1, 30, 0, 
+                [ 'id'=> 'date_1_day' ,'class' => 'form-control'])}}
+                -->
+                <input type="date" name="date_1" class="form-control"
+                value="{{$book->date_1}}"  />
+            </div>
+        </div>
+        <div class="form-group">
+            {!! Form::label('radio_1', 'radio_1', ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-4">
+                {{Form::radio('radio_1', 1 ,true)}} R1<br />
+                {{Form::radio('radio_1', 2)}} R2           
+            </div>
+        </div>    
+        <div class="form-group">
+            {!! Form::label('check_1', 'check_1', ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-4">
+                {{Form::checkbox('check_1', 1, true)}} CH_1  <br />
+                {{Form::checkbox('check_2', 1, true)}} CH_2
+            </div>
+        </div>   
 
+        <br />
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 {!! Form::submit('タスク追加', ['class' => 'btn btn-primary']) !!}

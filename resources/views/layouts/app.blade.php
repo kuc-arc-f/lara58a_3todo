@@ -35,6 +35,9 @@
                     <a class="nav-link" href="/tasks">Task</a>
                 </li>
                 <li class="nav-item active">
+                    <a class="nav-link" href="/books">Book</a>
+                </li>                
+                <li class="nav-item active">
                     <a class="nav-link" href="/depts">Depts</a>
                 </li>
                 <li class="nav-item active">
@@ -57,9 +60,19 @@
         </div>
         <hr />
     </nav>    
+    <!-- flash -->
+    @if (session('flash_message'))
+    <div class="flash_message bg-success text-center py-3 my-0" id="flash_message">
+        {{ session('flash_message') }}
+    </div>
+    @endif    
     <!-- main_content  -->
     <div class="container">
         @yield('content')
     </div>
 </body>
 </html>
+<!-- -->
+<style>
+#flash_message{ color : white; }
+</style>

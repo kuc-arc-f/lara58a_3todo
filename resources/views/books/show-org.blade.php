@@ -6,15 +6,16 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            {{ $task->name }}
+            {{ $task->title }}
         </div>
         <div class="panel-body">
             <div>
-                タスク名: {{ $task->name }}
+                タスク名: {{ $task->title }}
             </div>
             <div>
-                完了: {{ $task->done ? '完了' : '未' }}
-            </div>
+                content : {{ $task->content }}
+            </div>            
+
         </div>
         <div class="panel-footer">
             {{ link_to_route('tasks.index', '戻る') }}

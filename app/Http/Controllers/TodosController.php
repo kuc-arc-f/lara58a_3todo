@@ -43,6 +43,7 @@ class TodosController extends Controller
         $todo = new Todo();
         $todo->fill($inputs);
         $todo->save();
+        session()->flash('flash_message', '保存が完了しました');
         return redirect()->route('todos.index');
     }
     /**************************************
@@ -80,6 +81,7 @@ class TodosController extends Controller
         $todo = Todo::find($id);
         $todo->fill($request->all());
         $todo->save();
+        session()->flash('flash_message', '保存が完了しました');
         return redirect()->route('todos.index');
     }
     /**************************************
@@ -89,6 +91,7 @@ class TodosController extends Controller
     {
         $todo = Todo::find($id);
         $todo->delete();
+        session()->flash('flash_message', '削除が完了しました');
         return redirect()->route('todos.index');
     }    
 
