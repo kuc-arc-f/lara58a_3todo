@@ -23,6 +23,7 @@
             <thead>
                 <th>ID</th>
                 <th>title</th>
+                <th>create</th>
                 <th>編集</th>
                 <th>削除</th>
             </thead>
@@ -38,6 +39,9 @@
                         </h5>
                     <?php } ?>
                 </td>
+                <td class="table-text">{{ $todo->created_at->format('Y-m-d') }}
+                </td>
+
                 <td class="table-text">
                     {{ link_to_route('todos.edit', '編集'
                     , $todo->id, ['class' => 'btn btn-outline-primary']) }}
