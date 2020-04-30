@@ -65,9 +65,31 @@
                             </div>
                         </div>
                     </form>
+                    <hr />
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            guest@kuc-arc-f.com / password <br />
+                            でも　上記ログイン 可能です。
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="/users/valid_go" class="btn btn-outline-primary">Sign in with Google
+                            </a><br />
+                            Google ログインも可能です
+                        </div>
+                    </div>
                 </div>
             </div>
+            <br />
         </div>
     </div>
+    <hr />
+    <!-- Register -->
+    <div class="row justify-content-center">
+        <a href="/register" class="btn btn-outline-primary" > Register </a>
+    </div>
+
 </div>
 @endsection

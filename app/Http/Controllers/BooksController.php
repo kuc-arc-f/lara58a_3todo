@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
-
+use Log;
+//
 class BooksController extends Controller
 {
     /**************************************
@@ -75,5 +76,46 @@ class BooksController extends Controller
         $book->save();
         return redirect()->route('books.index');
     }
+    /**************************************
+     *
+     **************************************/
+    public function destroy($id)
+    {
+        $book = Book::find($id);
+        $book->delete();
+        return redirect()->route('books.index');
+    }    
+    /**************************************
+     * csrf, test
+     **************************************/
+    public function test1(Request $request ){
+// var_dump("#test1");
+//exit();
+        return view('books/test1')->with('book', null );
+    }
+    /**************************************
+     *
+     **************************************/    
+    public function test2(Request $request )
+    {
+        $inputs = $request->all();
+debug_dump($inputs );
+exit();
 
+    }    
+    /**************************************
+     * Blade, test
+     **************************************/
+    public function test3(){
+//        \Log::info("ログ出力テスト");
+//        \Log::debug("ログ出力テスト");
+//        logger(print_r($array, true));
+//var_dump("#test1");
+        $book = Book::find(1);
+dd($book->toArray() );
+//dd("#test1");
+exit();
+        return view('books/test3')->with('book', null );
+    }
+        
 }
