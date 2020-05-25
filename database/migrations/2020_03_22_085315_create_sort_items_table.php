@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMdatsTable extends Migration
+class CreateSortItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateMdatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mdats', function (Blueprint $table) {
+        Schema::create('sort_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->nullable(false);
-            $table->date('date')->nullable()->comment('入力日');
-            $table->integer('hnum')->nullable(false);
-            $table->integer('lnum')->nullable(false);
+            $table->bigInteger('order_no')->nullable(false);
+            $table->string('title')->nullable(false);
+            $table->text('content')->nullable();            
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateMdatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mdats');
+        Schema::dropIfExists('sort_items');
     }
 }

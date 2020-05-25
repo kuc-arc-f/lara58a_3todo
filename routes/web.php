@@ -50,9 +50,17 @@ Route::get('/chats/info_chat', 'ChatsController@info_chat')->name('chats.info_ch
 Route::get('/chats/add_member', 'ChatsController@add_member')->name('chats.add_member');
 Route::get('/chats/delete_member', 'ChatsController@delete_member')->name('chats.delete_member');
 Route::get('/chats/next_join', 'ChatsController@next_join')->name('chats.next_join');
-//Route::get('/chats/home', 'ChatsController@home')->name('chats.home');
+Route::get('/chats/test', 'ChatsController@test')->name('chats.test');
+
 Route::post('/chats/search_index', 'ChatsController@search_index')->name('chats.search_index');
 Route::resource('chats', 'ChatsController');
+//messages
+//Route::post('/messages/search_index', 'MessagesController@search_index')->name('messages.search_index');
+//Route::get('/messages/test', 'MessagesController@test')->name('messages.test');
+Route::get('/messages/show_sent', 'MessagesController@show_sent')->name('messages.show_sent');
+Route::get('/messages/reply', 'MessagesController@reply')->name('messages.reply');
+Route::get('/messages/export', 'MessagesController@export')->name('messages.export');
+Route::resource('messages', 'MessagesController');
 //
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -97,11 +105,20 @@ Route::prefix('api')->group(function(){
 //    Route::resource('apitasks', 'ApiTasksController' );    
     //chats
     Route::get('/apichats/get_post', 'ApiChatsController@get_post');
+    Route::get('/apichats/get_notify_menu', 'ApiChatsController@get_notify_menu');
+//    Route::get('/apichats/get_notify_index', 'ApiChatsController@get_notify_index');
     Route::post('/apichats/get_send_members', 'ApiChatsController@get_send_members');
     Route::post('/apichats/update_post_client', 'ApiChatsController@update_post_client');
     Route::post('/apichats/update_token', 'ApiChatsController@update_token');
     Route::post('/apichats/update_post', 'ApiChatsController@update_post');
     Route::post('/apichats/delete_post', 'ApiChatsController@delete_post');
+    // messages
+    Route::post('/apimessages/get_last_item', 'ApiMessagesController@get_last_item');
+    Route::post('/apimessages/get_item', 'ApiMessagesController@get_item');
+    Route::post('/apimessages/get_sent_item', 'ApiMessagesController@get_sent_item');
+    Route::post('/apimessages/get_user', 'ApiMessagesController@get_user');
+    Route::post('/apimessages/search', 'ApiMessagesController@search');
+
     //sys
     Route::post('/apisystem/delete_db_day', 'ApiSystemController@delete_db_day');
     Route::post('/apisystem/get_fcm_init', 'ApiSystemController@get_fcm_init');

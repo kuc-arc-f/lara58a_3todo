@@ -36,17 +36,13 @@
                 <div class="form-group">
                     {!! Form::label('complete', 'complete', ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-6">
-                        <!-- '' => '選択下さい', 
-                            [
-                             '0' => '未完了', '1' => '完了済'],
-                        -->
                         {{ Form::select('complete',  $complete_items, 
                             null, 
                             ['class' => 'form-control', 'id' => 'complete', 'required'=>'required']
                         ) }}
                     </div>
                 </div>
-
+                <hr />
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                         {!! Form::button('<i class="fa fa-save"></i> 保存', 
@@ -54,6 +50,15 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+            <hr />
+            <div class="form-group">
+                <div class="col-sm-6">
+                    {{ Form::open(['route' => ['todos.destroy', $todo->id], 'method' => 'delete']) }}
+                    {{ Form::hidden('id', $todo->id) }}
+                    {{ Form::submit('Delete', ['class' => 'btn btn-outline-danger btn-sm']) }}
+                    {{ Form::close() }}
+                </div>
+            </div>
         </div>
         <hr />
         <br />

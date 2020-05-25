@@ -42,7 +42,7 @@
     </div>
     {!! Form::close() !!}
     <hr class="mb-2 mt-2" />
-    <!--
+    <!-- <br /> -->
     <div class="complete_wrap">
         <?php if((int)$complete == 0){?>
             <a href="/todos?complete=0" class="btn btn-primary btn-sm">未完</a>
@@ -54,31 +54,6 @@
             </a>
         <?php } ?>        
     </div>
-    -->
-    <ul class="nav nav-tabs">
-        <?php
-            $not_complete_active = "";
-            $complete_active = "";
-            if((int)$complete == 0){
-                $not_complete_active = " active";
-            }else{
-                $complete_active = " active";
-            }
-        ?>
-        <li class="nav-item">
-            <a href="/todos?complete=0" class="nav-link <?= $not_complete_active ?>"
-                 id="not_complete_tab">
-                未完
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="/todos?complete=1" class="nav-link <?= $complete_active ?>"
-                 id="complete_tab">
-                完了
-            </a>
-        </li>
-    </ul>
-
     <div class="panel-body">
         <table class="table table-striped todos-table">
             <thead>
@@ -110,19 +85,14 @@
                 </td>
                 <td class="table-text">
                     <div style="float :left; margin-right :10px">
-                        <a href="/todos/<?= $todo->id ?>/edit"
-                            class="a_edit_link" 
-                            data-toggle="tooltip" title="編集します">
-                            <i class="far fa-edit"></i>
-                        </a>
+                        {{ link_to_route('todos.edit', '編集'
+                        , $todo->id, ['class' => 'btn btn-outline-primary btn-sm']) }}
                     </div>
-                    <!--
                     {{ Form::open(['route' => ['todos.destroy', $todo->id], 
                     'method' => 'delete']) }}
                         {{ Form::hidden('id', $todo->id) }}
                         {{ Form::submit('削除', ['class' => 'btn btn-outline-danger btn-sm']) }}
                     {{ Form::close() }}
-                    -->
                 </td>
             </tr>
             @endforeach
