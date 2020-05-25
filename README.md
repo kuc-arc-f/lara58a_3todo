@@ -6,7 +6,7 @@
 
  date    : 2019/12/17
 
- update : 2020/05/25
+ update : 2020/05/26
 
 ***
 
@@ -36,4 +36,16 @@ php artisan serve
 https://knaka0209.hatenablog.com/entry/lara58_6todo
 
 ***
+### UI
 
+* index : todo list
+![ img-1 ](https://raw.githubusercontent.com/kuc-arc-f/screen-img/master/web/todo/ss-todo-index.png)
+
+* show : todo detail
+![ img-1 ](https://raw.githubusercontent.com/kuc-arc-f/screen-img/master/web/todo/ss-todo-show.png)
+
+* create todo: md / markdown input ,todo
+
+![ img-1 ](https://raw.githubusercontent.com/kuc-arc-f/screen-img/master/web/todo/ss-todo-create.png)
+
+***
